@@ -9,7 +9,7 @@ RELEASE_DIR="$PLUGIN_DIR/bin/Release"
 
 STAGE_DIR="$REPO_ROOT/dist/staging-thunderstore"
 OUT_DIR="$REPO_ROOT/dist"
-ZIP_NAME="CatosJukeboxes-1.0.9.zip"
+ZIP_NAME="CatosJukeboxes-1.0.10.zip"
 
 echo "=== Building OdinOnDemand (Release) ==="
 cd "$PLUGIN_DIR"

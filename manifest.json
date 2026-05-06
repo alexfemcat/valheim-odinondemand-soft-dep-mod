@@ -1,6 +1,6 @@
 {
   "name": "CatosJukeboxes",
-  "version_number": "1.0.9",
+  "version_number": "1.0.10",
   "website_url": "https://github.com/alexfemcat/valheim-odinondemand-soft-dep-mod",
   "description": "Place media players to watch videos and listen to audio with full multiplayer sync. Supports direct video files, local files, and networked playback.",
   "dependencies": [
