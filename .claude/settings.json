@@ -63,7 +63,8 @@
       "Read(//tmp/**)",
       "Bash(~/.steam/debian-installation/steamapps/common/Valheim/valheim.x86_64 -console)",
       "Bash(rm -rf ~/.steam/debian-installation/steamapps/compatdata/892970 && echo \"Proton prefix deleted. Launch Valheim through Steam—it will rebuild the prefix on first launch.\")",
-      "Bash(chmod +x ~/.steam/debian-installation/steamapps/common/Valheim/yt-dlp.exe)"
+      "Bash(chmod +x ~/.steam/debian-installation/steamapps/common/Valheim/yt-dlp.exe)",
+      "Bash(curl -L -o /home/catosaur/Documents/bots_n_coding/Valheim-Mods/OdinOnDemand-SOFT/plugin/Assets/yt-dlp.exe https://github.com/yt-dlp/yt-dlp/releases/download/2025-05-03/yt-dlp.exe)"
     ],
     "additionalDirectories": [
       "/home/catosaur/Documents/bots_n_coding/Valheim-Mods",

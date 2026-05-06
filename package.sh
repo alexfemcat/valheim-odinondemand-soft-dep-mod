@@ -30,6 +30,13 @@ cp "$RELEASE_DIR"/*.dll "$STAGE_DIR/plugins/Valmedia-OdinOnDemand/"
 cp "$RELEASE_DIR"/*.json "$STAGE_DIR/plugins/Valmedia-OdinOnDemand/"
 cp "$RELEASE_DIR/videoplayers" "$STAGE_DIR/plugins/Valmedia-OdinOnDemand/"
 
+# yt-dlp for YouTube support
+if [ -f "$PLUGIN_DIR/Assets/yt-dlp.exe" ]; then
+  cp "$PLUGIN_DIR/Assets/yt-dlp.exe" "$STAGE_DIR/plugins/Valmedia-OdinOnDemand/"
+else
+  echo "WARNING: yt-dlp.exe not found, YouTube won't work"
+fi
+
 # Jotunn dependency
 if [ -d "$JOTUNN_SRC" ]; then
   cp "$JOTUNN_SRC"/Jotunn.dll "$STAGE_DIR/plugins/ValheimModding-Jotunn/"
@@ -52,6 +59,7 @@ cat > "$STAGE_DIR/plugins/README-INSTALL.txt" <<'EOF'
 OdinOnDemand Client Bundle - Installation
 ==========================================
 
+STEP 1: Copy plugin folders
 Copy the contents of THIS folder (everything inside "plugins/")
 into your BepInEx/plugins/ folder.
 
@@ -61,12 +69,22 @@ For r2modman users:
 For vanilla BepInEx:
   <Valheim install>/BepInEx/plugins/
 
-After copying, you should have these folders inside BepInEx/plugins/:
-  - Valmedia-OdinOnDemand/
-  - ValheimModding-Jotunn/
-  - ValheimModding-JsonDotNET/
+STEP 2: Place yt-dlp.exe
+The Valmedia-OdinOnDemand folder contains yt-dlp.exe. This file MUST be
+in the same folder as OdinOnDemand.dll for YouTube videos to work.
 
+After copying, verify you have:
+  BepInEx/plugins/Valmedia-OdinOnDemand/OdinOnDemand.dll
+  BepInEx/plugins/Valmedia-OdinOnDemand/yt-dlp.exe
+  BepInEx/plugins/Valmedia-OdinOnDemand/YoutubeDLSharp.dll
+  BepInEx/plugins/Valmedia-OdinOnDemand/YoutubeExplode.dll
+  BepInEx/plugins/Valmedia-OdinOnDemand/SoundCloudExplode.dll
+  BepInEx/plugins/ValheimModding-Jotunn/Jotunn.dll
+  BepInEx/plugins/ValheimModding-JsonDotNET/Newtonsoft.Json.dll
+
+STEP 3: Launch Valheim
 Launch Valheim. The OOD pieces appear under Hammer -> Furniture -> OOD.
+Videos and music will play through your placed boomboxes and TVs.
 EOF
 
 echo "=== Creating zip ==="
