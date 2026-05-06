@@ -67,7 +67,13 @@
       "Bash(curl -L -o /home/catosaur/Documents/bots_n_coding/Valheim-Mods/OdinOnDemand-SOFT/plugin/Assets/yt-dlp.exe https://github.com/yt-dlp/yt-dlp/releases/download/2025-05-03/yt-dlp.exe)",
       "Bash(chmod +x /home/catosaur/Documents/bots_n_coding/Valheim-Mods/OdinOnDemand-SOFT/package-server.sh /home/catosaur/Documents/bots_n_coding/Valheim-Mods/OdinOnDemand-SOFT/package-client-minimal.sh)",
       "Bash(/home/catosaur/Documents/bots_n_coding/Valheim-Mods/OdinOnDemand-SOFT/package-server.sh)",
-      "Bash(/home/catosaur/Documents/bots_n_coding/Valheim-Mods/OdinOnDemand-SOFT/package-client-minimal.sh)"
+      "Bash(/home/catosaur/Documents/bots_n_coding/Valheim-Mods/OdinOnDemand-SOFT/package-client-minimal.sh)",
+      "Bash(find /var/lib/pufferpanel/servers/13249a7f -name \"*log*\" -type f 2>/dev/null | head -20)",
+      "Read(//var/lib/pufferpanel/servers/13249a7f/**)",
+      "Bash(ls -la /var/lib/pufferpanel/servers/13249a7f/ 2>/dev/null | head -30)",
+      "Bash(bash package.sh)",
+      "Bash(bash package-server.sh)",
+      "Bash(bash package-client-minimal.sh)"
     ],
     "additionalDirectories": [
       "/home/catosaur/Documents/bots_n_coding/Valheim-Mods",
@@ -78,7 +84,8 @@
       "/home/catosaur/.config/r2modmanPlus-local/Valheim/profiles/Default/BepInEx/plugins/Valmedia-OdinOnDemand",
       "/home/catosaur/.config/r2modmanPlus-local/Valheim/profiles/Default/BepInEx",
       "/home/catosaur/.steam/debian-installation/steamapps/common/Valheim",
-      "/home/catosaur/.steam/debian-installation/steamapps/compatdata/892970"
+      "/home/catosaur/.steam/debian-installation/steamapps/compatdata/892970",
+      "/var/lib/pufferpanel/servers/13249a7f/BepInEx/config/OdinOnDemand"
     ]
   }
 }
