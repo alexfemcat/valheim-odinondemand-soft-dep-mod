@@ -25,9 +25,8 @@ mkdir -p "$STAGE_DIR/plugins/Valmedia-OdinOnDemand"
 mkdir -p "$STAGE_DIR/plugins/ValheimModding-Jotunn"
 mkdir -p "$STAGE_DIR/plugins/ValheimModding-JsonDotNET"
 
-# OdinOnDemand mod files (DLLs, asset bundle, configs)
+# OdinOnDemand mod files (DLLs, asset bundle)
 cp "$RELEASE_DIR"/*.dll "$STAGE_DIR/plugins/Valmedia-OdinOnDemand/"
-cp "$RELEASE_DIR"/*.json "$STAGE_DIR/plugins/Valmedia-OdinOnDemand/"
 cp "$RELEASE_DIR/videoplayers" "$STAGE_DIR/plugins/Valmedia-OdinOnDemand/"
 
 # yt-dlp for YouTube support

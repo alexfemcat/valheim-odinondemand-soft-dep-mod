@@ -21,10 +21,14 @@ echo "=== Staging server package ==="
 rm -rf "$STAGE_DIR"
 mkdir -p "$STAGE_DIR/BepInEx/plugins/Valmedia-OdinOnDemand"
 
-# OdinOnDemand mod files (DLLs, asset bundle, configs)
+# OdinOnDemand mod files (DLLs, asset bundle)
 cp "$RELEASE_DIR"/*.dll "$STAGE_DIR/BepInEx/plugins/Valmedia-OdinOnDemand/"
-cp "$RELEASE_DIR"/*.json "$STAGE_DIR/BepInEx/plugins/Valmedia-OdinOnDemand/"
 cp "$RELEASE_DIR/videoplayers" "$STAGE_DIR/BepInEx/plugins/Valmedia-OdinOnDemand/"
+
+# Create config folder and add default recipes
+mkdir -p "$STAGE_DIR/BepInEx/config/OdinOnDemand"
+cp "$RELEASE_DIR/default.json" "$STAGE_DIR/BepInEx/config/OdinOnDemand/recipes.json"
+cp "$RELEASE_DIR/default_items.json" "$STAGE_DIR/BepInEx/config/OdinOnDemand/recipes_item.json"
 
 # Drop install README inside the zip
 cat > "$STAGE_DIR/BepInEx/plugins/README-SERVER-INSTALL.txt" <<'EOF'

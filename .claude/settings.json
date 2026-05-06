@@ -73,7 +73,8 @@
       "Bash(ls -la /var/lib/pufferpanel/servers/13249a7f/ 2>/dev/null | head -30)",
       "Bash(bash package.sh)",
       "Bash(bash package-server.sh)",
-      "Bash(bash package-client-minimal.sh)"
+      "Bash(bash package-client-minimal.sh)",
+      "Bash(unzip -l /home/catosaur/Documents/bots_n_coding/Valheim-Mods/OdinOnDemand-SOFT/dist/OdinOnDemand-Server-Bundle.zip)"
     ],
     "additionalDirectories": [
       "/home/catosaur/Documents/bots_n_coding/Valheim-Mods",

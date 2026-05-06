@@ -22,9 +22,8 @@ echo "=== Staging mod-only package ==="
 rm -rf "$STAGE_DIR"
 mkdir -p "$STAGE_DIR/plugins/Valmedia-OdinOnDemand"
 
-# OdinOnDemand mod files (DLLs, asset bundle, configs, yt-dlp)
+# OdinOnDemand mod files (DLLs, asset bundle)
 cp "$RELEASE_DIR"/*.dll "$STAGE_DIR/plugins/Valmedia-OdinOnDemand/"
-cp "$RELEASE_DIR"/*.json "$STAGE_DIR/plugins/Valmedia-OdinOnDemand/"
 cp "$RELEASE_DIR/videoplayers" "$STAGE_DIR/plugins/Valmedia-OdinOnDemand/"
 
 # yt-dlp for YouTube support
