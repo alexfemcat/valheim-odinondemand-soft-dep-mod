@@ -74,7 +74,10 @@
       "Bash(bash package.sh)",
       "Bash(bash package-server.sh)",
       "Bash(bash package-client-minimal.sh)",
-      "Bash(unzip -l /home/catosaur/Documents/bots_n_coding/Valheim-Mods/OdinOnDemand-SOFT/dist/OdinOnDemand-Server-Bundle.zip)"
+      "Bash(unzip -l /home/catosaur/Documents/bots_n_coding/Valheim-Mods/OdinOnDemand-SOFT/dist/OdinOnDemand-Server-Bundle.zip)",
+      "Bash(chmod +x /home/catosaur/Documents/bots_n_coding/Valheim-Mods/OdinOnDemand-SOFT/package-thunderstore.sh)",
+      "Bash(bash /home/catosaur/Documents/bots_n_coding/Valheim-Mods/OdinOnDemand-SOFT/package-thunderstore.sh)",
+      "Bash(unzip -l /home/catosaur/Documents/bots_n_coding/Valheim-Mods/OdinOnDemand-SOFT/dist/CatosJukeboxes-1.0.9.zip)"
     ],
     "additionalDirectories": [
       "/home/catosaur/Documents/bots_n_coding/Valheim-Mods",
