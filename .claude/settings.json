@@ -40,13 +40,23 @@
       "Bash(awk '{printf \"    <Reference Include=\\\\\"%s\\\\\">\\\\n      <HintPath>$\\(VALHEIM_MANAGED\\)/%s.dll</HintPath>\\\\n      <Private>False</Private>\\\\n    </Reference>\\\\n\", $1, $1}')",
       "Bash(mkdir -p /home/catosaur/Documents/bots_n_coding/Valheim-Mods/OdinOnDemand-SOFT/plugin/Lib/Managed && cp /home/catosaur/.steam/debian-installation/steamapps/common/Valheim/valheim_Data/Managed/*.dll /home/catosaur/Documents/bots_n_coding/Valheim-Mods/OdinOnDemand-SOFT/plugin/Lib/Managed/ 2>&1 | head -5 && ls /home/catosaur/Documents/bots_n_coding/Valheim-Mods/OdinOnDemand-SOFT/plugin/Lib/Managed/UnityEngine.CoreModule.dll 2>&1)",
       "Bash(mkdir -p /home/catosaur/Documents/bots_n_coding/Valheim-Mods/OdinOnDemand-SOFT/plugin/Lib/BepInEx && cp /home/catosaur/.config/r2modmanPlus-local/Valheim/profiles/Default/BepInEx/core/*.dll /home/catosaur/Documents/bots_n_coding/Valheim-Mods/OdinOnDemand-SOFT/plugin/Lib/BepInEx/ 2>&1 | head -5 && ls /home/catosaur/Documents/bots_n_coding/Valheim-Mods/OdinOnDemand-SOFT/plugin/Lib/BepInEx/ | head -10)",
-      "Bash(mkdir -p /home/catosaur/Documents/bots_n_coding/Valheim-Mods/OdinOnDemand-SOFT/plugin/Lib/Publicized && cp /home/catosaur/Documents/bots_n_coding/Valheim-Mods/publicized_assemblies/*.dll /home/catosaur/Documents/bots_n_coding/Valheim-Mods/OdinOnDemand-SOFT/plugin/Lib/Publicized/ && ls /home/catosaur/Documents/bots_n_coding/Valheim-Mods/OdinOnDemand-SOFT/plugin/Lib/Publicized/)"
+      "Bash(mkdir -p /home/catosaur/Documents/bots_n_coding/Valheim-Mods/OdinOnDemand-SOFT/plugin/Lib/Publicized && cp /home/catosaur/Documents/bots_n_coding/Valheim-Mods/publicized_assemblies/*.dll /home/catosaur/Documents/bots_n_coding/Valheim-Mods/OdinOnDemand-SOFT/plugin/Lib/Publicized/ && ls /home/catosaur/Documents/bots_n_coding/Valheim-Mods/OdinOnDemand-SOFT/plugin/Lib/Publicized/)",
+      "Bash(cp ~/.nuget/packages/youtubedlsharp/1.1.2/lib/net8.0/YoutubeDLSharp.dll /home/catosaur/Documents/bots_n_coding/Valheim-Mods/OdinOnDemand-SOFT/TEST_SERVER/BepInEx/plugins/Valmedia-OdinOnDemand/ && ls -lh /home/catosaur/Documents/bots_n_coding/Valheim-Mods/OdinOnDemand-SOFT/TEST_SERVER/BepInEx/plugins/Valmedia-OdinOnDemand/ | grep -E \"\\(YoutubeDLSharp|YoutubeExplode|SoundCloud\\)\")",
+      "Bash(timeout 5 ./valheim_server.x86_64)",
+      "Bash(pkill -f \"valheim_server.x86_64\")",
+      "Bash(./valheim_server.x86_64 -name \"Catos Valheim\" -port 2456 -world VHWorld -password 696969 -public 1 -crossplay)",
+      "Bash(tee /tmp/server_start.log)",
+      "Bash(mkdir -p ~/.config/r2modmanPlus-local/Valheim/profiles/Default/BepInEx/plugins/Valmedia-OdinOnDemand)",
+      "Bash(cp /home/catosaur/Documents/bots_n_coding/Valheim-Mods/OdinOnDemand-SOFT/plugin/bin/Release/*.dll /home/catosaur/Documents/bots_n_coding/Valheim-Mods/OdinOnDemand-SOFT/plugin/bin/Release/*.json /home/catosaur/Documents/bots_n_coding/Valheim-Mods/OdinOnDemand-SOFT/plugin/bin/Release/videoplayers ~/.config/r2modmanPlus-local/Valheim/profiles/Default/BepInEx/plugins/Valmedia-OdinOnDemand/)",
+      "Bash(cp -v /home/catosaur/.nuget/packages/youtubedlsharp/1.1.2/lib/net45/YoutubeDLSharp.dll /home/catosaur/Documents/bots_n_coding/Valheim-Mods/OdinOnDemand-SOFT/TEST_SERVER/BepInEx/plugins/Valmedia-OdinOnDemand/)",
+      "Bash(cp -v /home/catosaur/.nuget/packages/youtubedlsharp/1.1.2/lib/net45/YoutubeDLSharp.dll ~/.config/r2modmanPlus-local/Valheim/profiles/Default/BepInEx/plugins/Valmedia-OdinOnDemand/)"
     ],
     "additionalDirectories": [
       "/home/catosaur/Documents/bots_n_coding/Valheim-Mods",
       "/home/catosaur/.steam/debian-installation/steamapps/common/Valheim/valheim_Data/Managed",
       "/home/catosaur/.config/r2modmanPlus-local/Valheim/profiles/Default/BepInEx/core",
-      "/home/catosaur/Documents/bots_n_coding/Valheim-Mods/publicized_assemblies"
+      "/home/catosaur/Documents/bots_n_coding/Valheim-Mods/publicized_assemblies",
+      "/home/catosaur/.nuget/packages/youtubedlsharp/1.1.2/lib/net8.0"
     ]
   }
 }
