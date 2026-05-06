@@ -29,6 +29,9 @@ mkdir -p "$STAGE_DIR/plugins/ValheimModding-JsonDotNET"
 cp "$RELEASE_DIR"/*.dll "$STAGE_DIR/plugins/Valmedia-OdinOnDemand/"
 cp "$RELEASE_DIR/videoplayers" "$STAGE_DIR/plugins/Valmedia-OdinOnDemand/"
 
+# Create media folder for local files
+mkdir -p "$STAGE_DIR/plugins/Valmedia-OdinOnDemand/media"
+
 # yt-dlp for YouTube support
 if [ -f "$PLUGIN_DIR/Assets/yt-dlp.exe" ]; then
   cp "$PLUGIN_DIR/Assets/yt-dlp.exe" "$STAGE_DIR/plugins/Valmedia-OdinOnDemand/"
@@ -74,22 +77,23 @@ For r2modman users:
 For vanilla BepInEx:
   <Valheim install>/BepInEx/
 
-STEP 2: Place yt-dlp.exe
-The Valmedia-OdinOnDemand folder contains yt-dlp.exe. This file MUST be
-in the same folder as OdinOnDemand.dll for YouTube videos to work.
-
 After copying, verify you have:
   BepInEx/plugins/Valmedia-OdinOnDemand/OdinOnDemand.dll
-  BepInEx/plugins/Valmedia-OdinOnDemand/yt-dlp.exe
-  BepInEx/plugins/Valmedia-OdinOnDemand/YoutubeDLSharp.dll
   BepInEx/plugins/Valmedia-OdinOnDemand/YoutubeExplode.dll
-  BepInEx/plugins/Valmedia-OdinOnDemand/SoundCloudExplode.dll
   BepInEx/plugins/ValheimModding-Jotunn/Jotunn.dll
   BepInEx/plugins/ValheimModding-JsonDotNET/Newtonsoft.Json.dll
 
-STEP 3: Launch Valheim
+STEP 2: Launch Valheim
 Launch Valheim. The OOD pieces appear under Hammer -> Furniture -> OOD.
-Videos and music will play through your placed boomboxes and TVs.
+
+STEP 3: Add Media Files (Optional)
+To play local video/audio files:
+  1. Go to: BepInEx/plugins/Valmedia-OdinOnDemand/media/
+  2. Drop your MP4, MP3, WAV, OGG, or FLAC files there
+  3. In-game: Open a media player → URL tab → Type the filename (e.g., "bee.mp4")
+  4. Click Set, then Play
+
+Supported formats: MP4, WebM, MP3, WAV, OGG, FLAC
 EOF
 
 echo "=== Creating zip ==="

@@ -80,7 +80,8 @@
       "Bash(unzip -l /home/catosaur/Documents/bots_n_coding/Valheim-Mods/OdinOnDemand-SOFT/dist/CatosJukeboxes-1.0.9.zip)",
       "WebFetch(domain:thunderstore.io)",
       "Bash(bash package-thunderstore.sh)",
-      "Bash(identify /home/catosaur/Documents/bots_n_coding/Valheim-Mods/OdinOnDemand-SOFT/server-icon.png)"
+      "Bash(identify /home/catosaur/Documents/bots_n_coding/Valheim-Mods/OdinOnDemand-SOFT/server-icon.png)",
+      "Bash(unzip -p /home/catosaur/Documents/bots_n_coding/Valheim-Mods/OdinOnDemand-SOFT/dist/OdinOnDemand-Client-Bundle.zip plugins/README-INSTALL.txt)"
     ],
     "additionalDirectories": [
       "/home/catosaur/Documents/bots_n_coding/Valheim-Mods",

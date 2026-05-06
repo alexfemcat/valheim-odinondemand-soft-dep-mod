@@ -25,6 +25,9 @@ mkdir -p "$STAGE_DIR/BepInEx/plugins/Valmedia-OdinOnDemand"
 cp "$RELEASE_DIR"/*.dll "$STAGE_DIR/BepInEx/plugins/Valmedia-OdinOnDemand/"
 cp "$RELEASE_DIR/videoplayers" "$STAGE_DIR/BepInEx/plugins/Valmedia-OdinOnDemand/"
 
+# Create media folder for local files
+mkdir -p "$STAGE_DIR/BepInEx/plugins/Valmedia-OdinOnDemand/media"
+
 # Create config folder and add default recipes
 mkdir -p "$STAGE_DIR/BepInEx/config/OdinOnDemand"
 cp "$RELEASE_DIR/default.json" "$STAGE_DIR/BepInEx/config/OdinOnDemand/recipes.json"
@@ -45,22 +48,20 @@ Your server folder structure should look like:
   │   ├── plugins/
   │   │   └── Valmedia-OdinOnDemand/
   │   │       ├── OdinOnDemand.dll
-  │   │       ├── YoutubeDLSharp.dll
   │   │       ├── YoutubeExplode.dll
-  │   │       ├── SoundCloudExplode.dll
   │   │       ├── System.ValueTuple.dll
   │   │       ├── videoplayers
-  │   │       ├── default.json
-  │   │       └── default_items.json
+  │   │       ├── media/  (for local files)
   │   ├── core/  (should already exist)
   │   └── config/
+  │       └── OdinOnDemand/
 
 STEP 2: Restart Server
 Restart your dedicated server. BepInEx will load OdinOnDemand automatically on startup.
 
 STEP 3: Verify Installation
 Check your server logs for:
-  [Info   :   BepInEx] Loading [OdinOnDemand 1.0.9]
+  [Info   :   BepInEx] Loading [OdinOnDemand 1.0.10]
   [Info   :Jotunn.Managers.PieceManager] Adding 13 custom pieces to the PieceTables
 
 If you see these lines, the mod loaded successfully.
@@ -69,6 +70,11 @@ CONFIGURATION
 - All pieces appear in Hammer → Furniture → OOD
 - Players craft Remote Control with 1 Bronze
 - Config files: BepInEx/config/OdinOnDemand/config.cfg
+
+LOCAL FILES
+- Add MP4, MP3, WAV, OGG, or FLAC files to: BepInEx/plugins/Valmedia-OdinOnDemand/media/
+- In-game: Open media player → URL tab → Type filename (e.g., "song.mp3")
+- Click Set, then Play
 
 SOFT DEPENDENCY
 This mod is a SOFT dependency:

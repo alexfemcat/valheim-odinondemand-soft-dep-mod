@@ -660,6 +660,7 @@ namespace OdinOnDemand.MPlayer
         public void RPC_SetURL(string url, bool isPaused = false, float time = 0f) // RPC SetURL
         {
             if (url == null) return;
+            Logger.LogWarning($"[RPC_SetURL] Called with URL: {url}");
             System.Text.Encoding encoding = System.Text.Encoding.UTF8;
             byte[] bytes = encoding.GetBytes(url);
             url = encoding.GetString(bytes);
@@ -668,6 +669,7 @@ namespace OdinOnDemand.MPlayer
             //check if url is audio file
             if (URLGrab.IsAudioFile(url))
             {
+                Logger.LogWarning($"[RPC_SetURL] Detected as AUDIO file");
                 var relativeURL = URLGrab.GetRelativeURL(url);
 
                 if (relativeURL != "")
@@ -681,31 +683,39 @@ namespace OdinOnDemand.MPlayer
                 }
 
                 DownloadURL = URLGrab.CleanUrl(url);
+                Logger.LogWarning($"[RPC_SetURL] Playing audio from: {DownloadURL}");
                 StartCoroutine(AudioWebRequest(DownloadURL));
                 return;
             }
 
             if (url.Contains("\\") || url.Contains(".") || url.Contains("/"))
             {
+                Logger.LogWarning($"[RPC_SetURL] Detected as VIDEO (contains path separators or dots)");
                 //Relative paths for local files
                 var relativeURL = URLGrab.GetRelativeURL(url);
 
                 if (relativeURL != "")
                 {
+                    Logger.LogWarning($"[RPC_SetURL] Using relative path: {relativeURL}");
                     mScreen.source = VideoSource.Url;
                     mScreen.url = relativeURL;
                     PlayerSettings.PlayerLinkType = PlayerSettings.LinkType.RelativeVideo;
-                    if (OODConfig.DebugEnabled.Value) Logger.LogDebug("Playing: " + relativeURL);
+                    Logger.LogWarning($"[RPC_SetURL] Set VideoPlayer.url to: {relativeURL}");
                     BeginLoadingPrepare();
                 }
                 else
                 {
+                    Logger.LogWarning($"[RPC_SetURL] No relative path found, using as direct URL: {url}");
                     PlayerSettings.PlayerLinkType = PlayerSettings.LinkType.Video;
                     mScreen.source = UnityEngine.Video.VideoSource.Url;
                     mScreen.url = url;
+                    Logger.LogWarning($"[RPC_SetURL] Set VideoPlayer.url to: {url}");
                     BeginLoadingPrepare();
-                    if (OODConfig.DebugEnabled.Value) Logger.LogDebug("Playing: " + url);
                 }
+            }
+            else
+            {
+                Logger.LogWarning($"[RPC_SetURL] URL does not match local file pattern, skipping");
             }
         }
 

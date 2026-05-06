@@ -191,6 +191,7 @@ namespace OdinOnDemand.Utils.Net.Explode
         {
             // Get the directory of the current assembly
             string assemblyDirectory = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+            Logger.LogWarning($"[GetRelativeURL] Assembly dir: {assemblyDirectory}, Input URL: {url}");
 
             string relativeURL = url;
 
@@ -198,25 +199,48 @@ namespace OdinOnDemand.Utils.Net.Explode
             if (relativeURL.StartsWith("local:\\\\"))
             {
                 relativeURL = relativeURL.Substring("local:\\\\".Length);
+                Logger.LogWarning($"[GetRelativeURL] Stripped local:\\\\ prefix → {relativeURL}");
             }
             else if (relativeURL.StartsWith("local://"))
             {
                 relativeURL = relativeURL.Substring("local://".Length);
+                Logger.LogWarning($"[GetRelativeURL] Stripped local:// prefix → {relativeURL}");
             }
 
-            // Combine the assembly directory with the relative path
-            string fullPath = Path.Combine(assemblyDirectory, relativeURL);
+            // If it's just a filename (no path separators), look in the media folder
+            if (!relativeURL.Contains("\\") && !relativeURL.Contains("/"))
+            {
+                Logger.LogWarning($"[GetRelativeURL] Detected as simple filename, looking in media folder");
+                string fullPath = Path.Combine(assemblyDirectory, "media", relativeURL);
+                fullPath = Path.GetFullPath(fullPath);
+                Logger.LogWarning($"[GetRelativeURL] Checking media path: {fullPath}");
+
+                if (File.Exists(fullPath))
+                {
+                    Logger.LogWarning($"[GetRelativeURL] FILE FOUND in media folder - returning: {fullPath}");
+                    return fullPath;
+                }
+                else
+                {
+                    Logger.LogWarning($"[GetRelativeURL] FILE NOT FOUND in media folder: {fullPath}");
+                    return "";
+                }
+            }
+
+            // Combine the assembly directory with the relative path (for paths with separators)
+            string fullPath2 = Path.Combine(assemblyDirectory, relativeURL);
 
             // Normalize the path
-            fullPath = Path.GetFullPath(fullPath);
+            fullPath2 = Path.GetFullPath(fullPath2);
+            Logger.LogWarning($"[GetRelativeURL] Full path: {fullPath2}");
 
-            if (File.Exists(fullPath))
+            if (File.Exists(fullPath2))
             {
-                Jotunn.Logger.LogDebug($"Relative file found: {fullPath}");
-                return fullPath;
+                Logger.LogWarning($"[GetRelativeURL] FILE FOUND - returning: {fullPath2}");
+                return fullPath2;
             }
 
-            Jotunn.Logger.LogDebug($"Relative file does not exist: {fullPath}");
+            Logger.LogWarning($"[GetRelativeURL] FILE NOT FOUND: {fullPath2}");
             return "";
         }
         

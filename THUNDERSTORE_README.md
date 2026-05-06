@@ -29,8 +29,9 @@ A Valheim mod that adds media players to watch videos and listen to audio with f
 - Example: `https://example.com/video.mp4`
 
 **Local Files:**
-- Use relative paths: `local://subfolder/video.mp4`
-- Paths are relative to the `Valmedia-OdinOnDemand/` plugin folder
+- Place files in: `BepInEx/plugins/Valmedia-OdinOnDemand/media/`
+- In the media player URL tab, type just the filename
+- Example: type `bee.mp4` or `music.mp3`
 - Supported formats: MP4, WebM, OGG, WAV, MP3, FLAC
 
 **Playlists:**
