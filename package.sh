@@ -53,20 +53,26 @@ else
   exit 1
 fi
 
+# Create config folder and add default recipes
+mkdir -p "$STAGE_DIR/BepInEx/config/OdinOnDemand"
+cp "$RELEASE_DIR/default.json" "$STAGE_DIR/BepInEx/config/OdinOnDemand/recipes.json"
+cp "$RELEASE_DIR/default_items.json" "$STAGE_DIR/BepInEx/config/OdinOnDemand/recipes_item.json"
+
 # Drop a quick install README inside the zip
 cat > "$STAGE_DIR/plugins/README-INSTALL.txt" <<'EOF'
 OdinOnDemand Client Bundle - Installation
 ==========================================
 
-STEP 1: Copy plugin folders
-Copy the contents of THIS folder (everything inside "plugins/")
-into your BepInEx/plugins/ folder.
+STEP 1: Extract and Copy Folders
+Extract this zip. Copy BOTH folders into your Valheim installation:
+  - Copy "plugins/" contents → BepInEx/plugins/
+  - Copy "BepInEx/" → Your Valheim BepInEx/ directory (merges with existing config)
 
 For r2modman users:
-  ~/.config/r2modmanPlus-local/Valheim/profiles/<YourProfile>/BepInEx/plugins/
+  ~/.config/r2modmanPlus-local/Valheim/profiles/<YourProfile>/BepInEx/
 
 For vanilla BepInEx:
-  <Valheim install>/BepInEx/plugins/
+  <Valheim install>/BepInEx/
 
 STEP 2: Place yt-dlp.exe
 The Valmedia-OdinOnDemand folder contains yt-dlp.exe. This file MUST be
@@ -90,7 +96,7 @@ echo "=== Creating zip ==="
 mkdir -p "$OUT_DIR"
 rm -f "$OUT_DIR/$ZIP_NAME"
 cd "$STAGE_DIR"
-zip -r -q "$OUT_DIR/$ZIP_NAME" plugins README-INSTALL.txt 2>/dev/null || zip -r -q "$OUT_DIR/$ZIP_NAME" plugins
+zip -r -q "$OUT_DIR/$ZIP_NAME" plugins BepInEx README-INSTALL.txt 2>/dev/null || zip -r -q "$OUT_DIR/$ZIP_NAME" plugins BepInEx
 
 echo "=== Cleaning up ==="
 rm -rf "$STAGE_DIR"
