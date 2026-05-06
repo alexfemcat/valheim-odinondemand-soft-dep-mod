@@ -50,17 +50,17 @@ Use **OdinOnDemand-Mod-Only.zip** if you already have BepInEx, JotunnLib, and Js
 
 ### Playing Media
 
-**YouTube/Direct Links:**
-- Paste YouTube URLs: `https://youtube.com/watch?v=...` or `https://youtu.be/...`
-- Paste direct video links: MP4 or WebM files with compatible codecs
-- Paste SoundCloud URLs: `https://soundcloud.com/...`
+**Direct Video/Audio Files:**
+- Paste direct links to MP4, WebM, or audio files with compatible codecs
+- Example: `https://example.com/video.mp4`
 
 **Local Files:**
 - Use relative paths: `local://subfolder/video.mp4`
 - Paths are relative to the `Valmedia-OdinOnDemand/` plugin folder
+- Supported formats: MP4, WebM, OGG, WAV, MP3, FLAC
 
 **Playlists:**
-- Paste YouTube playlist URLs: `https://youtube.com/playlist?list=...`
+- Create multiple entries in the media player to queue videos
 - Use shuffle and loop options from the settings menu
 
 ### Remote Control
@@ -99,9 +99,10 @@ This mod uses SOFT dependency mode:
 - Check that `videoplayers` asset bundle file is present
 - Restart the game
 
-**YouTube won't play:**
-- Verify `yt-dlp.exe` is in the same folder as `OdinOnDemand.dll`
-- Make sure `YoutubeDLSharp.dll` and `YoutubeExplode.dll` are present
+**Media won't play:**
+- Verify all dependency DLLs are present in `Valmedia-OdinOnDemand/` folder
+- Check that the media file format is compatible (MP4, WebM, OGG, WAV, MP3, FLAC)
+- Verify the URL or file path is correct
 - Check `BepInEx/LogOutput.log` for errors
 
 **No sound from speakers:**
