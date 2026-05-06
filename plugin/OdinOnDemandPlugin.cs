@@ -47,8 +47,17 @@ namespace OdinOnDemand
         
         public StationManager StationManager { get; private set; }
 
+        private void OnDestroy()
+        {
+            LocalFileServer.Stop();
+        }
+
         private void Awake()
         {
+            var mediaDir = Path.Combine(Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location), "media");
+            System.IO.Directory.CreateDirectory(mediaDir);
+            LocalFileServer.Start(mediaDir);
+
             //setup config
             OODConfig.Bind(OdinConfig);
             _pieceRecipeFile = OdinConfigFolder + "/recipes.json";

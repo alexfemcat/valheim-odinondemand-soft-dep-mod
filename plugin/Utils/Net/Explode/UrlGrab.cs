@@ -217,8 +217,9 @@ namespace OdinOnDemand.Utils.Net.Explode
 
                 if (File.Exists(fullPath))
                 {
-                    Logger.LogWarning($"[GetRelativeURL] FILE FOUND in media folder - returning: {fullPath}");
-                    return fullPath;
+                    var localhostUrl = OdinOnDemand.Utils.LocalFileServer.GetUrl(relativeURL);
+                    Logger.LogWarning($"[GetRelativeURL] FILE FOUND - serving via localhost: {localhostUrl}");
+                    return localhostUrl ?? fullPath;
                 }
                 else
                 {
@@ -229,8 +230,6 @@ namespace OdinOnDemand.Utils.Net.Explode
 
             // Combine the assembly directory with the relative path (for paths with separators)
             string fullPath2 = Path.Combine(assemblyDirectory, relativeURL);
-
-            // Normalize the path
             fullPath2 = Path.GetFullPath(fullPath2);
             Logger.LogWarning($"[GetRelativeURL] Full path: {fullPath2}");
 

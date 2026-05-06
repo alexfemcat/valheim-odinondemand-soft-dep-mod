@@ -74,6 +74,10 @@ To reset to defaults, delete the config files and restart the game.
 - Check the volume slider in the UI
 - Confirm game audio isn't muted
 
+## Linux Notes
+
+Audio files (MP3, OGG, WAV, FLAC) work out of the box. Local video playback uses a built-in localhost HTTP server so no extra setup is needed.
+
 ## Known Issues
 
 - Boomboxes can be difficult to place on certain terrain — try placing on flat ground
