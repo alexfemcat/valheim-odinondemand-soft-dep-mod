@@ -2,7 +2,51 @@
   "permissions": {
     "allow": [
       "Bash(ls -la ~/.steam/debian-installation/steamapps/compatdata/ 2>&1 | head -20)",
-      "Read(//home/catosaur/.steam/debian-installation/steamapps/compatdata/**)"
+      "Read(//home/catosaur/.steam/debian-installation/steamapps/compatdata/**)",
+      "Bash(find ~/.steam -name \"Valheim\" -type d 2>/dev/null | head -5)",
+      "Read(//home/catosaur/.steam/**)",
+      "Bash(find ~/.config -path \"*r2modman*\" -name \"Default\" -type d 2>/dev/null)",
+      "Read(//home/catosaur/.config/**)",
+      "Bash(find /home/catosaur -name \"*publicized*\" -o -name \"*PublicizedAssemblies*\" 2>/dev/null | head -5)",
+      "Read(//home/catosaur/**)",
+      "Bash(rm -rf ~/.dotnet/tools/.store/assemblypublicizer)",
+      "Bash(rm -f ~/.dotnet/tools/assemblypublicizer)",
+      "Bash(dotnet tool *)",
+      "Bash(rm -rf ~/.dotnet/tools/.store)",
+      "Bash(rm -rf ~/.dotnet/tools/*.completed)",
+      "Bash(rm -rf ~/.dotnet)",
+      "Bash(mkdir -p ~/.dotnet)",
+      "Bash(mkdir -p ~/Documents/bots_n_coding/Valheim-Mods/publicized_assemblies)",
+      "Bash(wget -q https://github.com/Valheim-Modding/public-assemblies/releases/download/latest/publicized_assemblies.zip)",
+      "Bash(unzip -q publicized_assemblies.zip)",
+      "Bash(rm publicized_assemblies.zip)",
+      "Bash(curl -L https://github.com/Valheim-Modding/public-assemblies/releases/latest)",
+      "WebFetch(domain:api.github.com)",
+      "Bash(rm -rf ~/.nuget/packages/assemblypublicizer)",
+      "Bash(dotnet nuget *)",
+      "Bash(python3)",
+      "WebFetch(domain:github.com)",
+      "Bash(chmod +x ~/Documents/bots_n_coding/Valheim-Mods/publicize.sh)",
+      "Bash(msbuild -c Release)",
+      "Bash(which xbuild *)",
+      "Read(//usr/**)",
+      "Bash(xbuild -c Release)",
+      "Bash(xbuild OdinOnDemand.csproj -c Release)",
+      "Bash(/usr/bin/xbuild /p:Configuration=Release OdinOnDemand.csproj)",
+      "Bash(docker --version)",
+      "Bash(rm -rf packages obj bin)",
+      "Bash(dotnet restore *)",
+      "Bash(dotnet build *)",
+      "Bash(awk '{printf \"    <Reference Include=\\\\\"%s\\\\\">\\\\n      <HintPath>$\\(VALHEIM_MANAGED\\)/%s.dll</HintPath>\\\\n      <Private>False</Private>\\\\n    </Reference>\\\\n\", $1, $1}')",
+      "Bash(mkdir -p /home/catosaur/Documents/bots_n_coding/Valheim-Mods/OdinOnDemand-SOFT/plugin/Lib/Managed && cp /home/catosaur/.steam/debian-installation/steamapps/common/Valheim/valheim_Data/Managed/*.dll /home/catosaur/Documents/bots_n_coding/Valheim-Mods/OdinOnDemand-SOFT/plugin/Lib/Managed/ 2>&1 | head -5 && ls /home/catosaur/Documents/bots_n_coding/Valheim-Mods/OdinOnDemand-SOFT/plugin/Lib/Managed/UnityEngine.CoreModule.dll 2>&1)",
+      "Bash(mkdir -p /home/catosaur/Documents/bots_n_coding/Valheim-Mods/OdinOnDemand-SOFT/plugin/Lib/BepInEx && cp /home/catosaur/.config/r2modmanPlus-local/Valheim/profiles/Default/BepInEx/core/*.dll /home/catosaur/Documents/bots_n_coding/Valheim-Mods/OdinOnDemand-SOFT/plugin/Lib/BepInEx/ 2>&1 | head -5 && ls /home/catosaur/Documents/bots_n_coding/Valheim-Mods/OdinOnDemand-SOFT/plugin/Lib/BepInEx/ | head -10)",
+      "Bash(mkdir -p /home/catosaur/Documents/bots_n_coding/Valheim-Mods/OdinOnDemand-SOFT/plugin/Lib/Publicized && cp /home/catosaur/Documents/bots_n_coding/Valheim-Mods/publicized_assemblies/*.dll /home/catosaur/Documents/bots_n_coding/Valheim-Mods/OdinOnDemand-SOFT/plugin/Lib/Publicized/ && ls /home/catosaur/Documents/bots_n_coding/Valheim-Mods/OdinOnDemand-SOFT/plugin/Lib/Publicized/)"
+    ],
+    "additionalDirectories": [
+      "/home/catosaur/Documents/bots_n_coding/Valheim-Mods",
+      "/home/catosaur/.steam/debian-installation/steamapps/common/Valheim/valheim_Data/Managed",
+      "/home/catosaur/.config/r2modmanPlus-local/Valheim/profiles/Default/BepInEx/core",
+      "/home/catosaur/Documents/bots_n_coding/Valheim-Mods/publicized_assemblies"
     ]
   }
 }
