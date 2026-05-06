@@ -74,9 +74,10 @@ To reset to defaults, delete the config files and restart the game.
 - Check the volume slider in the UI
 - Confirm game audio isn't muted
 
-## Linux Notes
+## Platform Notes
 
-Audio files (MP3, OGG, WAV, FLAC) work out of the box. Local video playback uses a built-in localhost HTTP server so no extra setup is needed.
+- **Audio** (MP3, OGG, WAV, FLAC): Works on all platforms
+- **Video** (MP4, WebM): Works on Windows only — Linux clients will not display video
 
 ## Known Issues
 
