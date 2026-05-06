@@ -55,8 +55,9 @@ Use **OdinOnDemand-Mod-Only.zip** if you already have BepInEx, JotunnLib, and Js
 - Example: `https://example.com/video.mp4`
 
 **Local Files:**
-- Use relative paths: `local://subfolder/video.mp4`
-- Paths are relative to the `Valmedia-OdinOnDemand/` plugin folder
+- Place files in: `BepInEx/plugins/Valmedia-OdinOnDemand/media/`
+- In the media player URL tab, type just the filename
+- Example: type `bee.mp4` or `music.mp3`
 - Supported formats: MP4, WebM, OGG, WAV, MP3, FLAC
 
 **Playlists:**
@@ -101,6 +102,8 @@ This mod uses SOFT dependency mode:
 
 **Media won't play:**
 - Verify all dependency DLLs are present in `Valmedia-OdinOnDemand/` folder
+- For local files: Check that `media/` folder exists and files are placed there
+- For local files: Type just the filename (e.g., `song.mp3`, not paths or URLs)
 - Check that the media file format is compatible (MP4, WebM, OGG, WAV, MP3, FLAC)
 - Verify the URL or file path is correct
 - Check `BepInEx/LogOutput.log` for errors
@@ -112,7 +115,6 @@ This mod uses SOFT dependency mode:
 
 ## Known Issues
 
-- YouTube playback on Linux/Proton may have audio issues due to yt-dlp compatibility
 - Boomboxes can be difficult to place on certain terrain — try placing on flat ground
 - If you have V-Sync forced in your GPU driver, disable it or set to "match application setting"
 

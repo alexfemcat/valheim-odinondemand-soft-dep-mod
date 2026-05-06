@@ -81,7 +81,12 @@
       "WebFetch(domain:thunderstore.io)",
       "Bash(bash package-thunderstore.sh)",
       "Bash(identify /home/catosaur/Documents/bots_n_coding/Valheim-Mods/OdinOnDemand-SOFT/server-icon.png)",
-      "Bash(unzip -p /home/catosaur/Documents/bots_n_coding/Valheim-Mods/OdinOnDemand-SOFT/dist/OdinOnDemand-Client-Bundle.zip plugins/README-INSTALL.txt)"
+      "Bash(unzip -p /home/catosaur/Documents/bots_n_coding/Valheim-Mods/OdinOnDemand-SOFT/dist/OdinOnDemand-Client-Bundle.zip plugins/README-INSTALL.txt)",
+      "Bash(ffmpeg -version)",
+      "Bash(ffmpeg -i \"/home/catosaur/.steam/debian-installation/steamapps/common/Valheim/BepInEx/plugins/Valmedia-OdinOnDemand/media/bee.mp4\" -c:v libvpx-vp9 -crf 30 -b:v 0 -c:a libvorbis \"/home/catosaur/.steam/debian-installation/steamapps/common/Valheim/BepInEx/plugins/Valmedia-OdinOnDemand/media/bee.webm\")",
+      "Bash(ffmpeg -y -i \"/home/catosaur/.steam/debian-installation/steamapps/common/Valheim/BepInEx/plugins/Valmedia-OdinOnDemand/media/bee.mp4\" -c:v libvpx-vp9 -crf 30 -b:v 0 -c:a libvorbis \"/home/catosaur/.steam/debian-installation/steamapps/common/Valheim/BepInEx/plugins/Valmedia-OdinOnDemand/media/bee.webm\")",
+      "Bash(ffprobe -v quiet -show_entries format=duration -of csv=p=0 \"/home/catosaur/.steam/debian-installation/steamapps/common/Valheim/BepInEx/plugins/Valmedia-OdinOnDemand/media/bee.mp4\")",
+      "Bash(ffmpeg -y -i \"/home/catosaur/.steam/debian-installation/steamapps/common/Valheim/BepInEx/plugins/Valmedia-OdinOnDemand/media/bee.mp4\" -c:v libvpx-vp9 -crf 40 -b:v 0 -deadline realtime -cpu-used 8 -c:a libvorbis \"/home/catosaur/.steam/debian-installation/steamapps/common/Valheim/BepInEx/plugins/Valmedia-OdinOnDemand/media/bee.webm\")"
     ],
     "additionalDirectories": [
       "/home/catosaur/Documents/bots_n_coding/Valheim-Mods",

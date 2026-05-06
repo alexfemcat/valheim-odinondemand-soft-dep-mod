@@ -85,6 +85,7 @@ namespace OdinOnDemand.MPlayer
             //Screen events
             mScreen.prepareCompleted += ScreenPrepareCompleted;
             mScreen.loopPointReached += EndReached;
+            mScreen.errorReceived += (vp, msg) => Logger.LogError($"[VideoPlayer] Error: {msg}");
             SetupAudio();
             // Repeating tasks
             InvokeRepeating(nameof(UpdateLoadingIndicator), 0.5f, 0.5f);
