@@ -4,8 +4,8 @@
   "website_url": "https://github.com/modestimpala/OdinOnDemand",
   "description": "Place media players to watch videos and listen to audio with full multiplayer sync. Supports direct video files, local files, and networked playback.",
   "dependencies": [
-    "denikson-BepInExPack_Valheim-5.4.2203",
+    "denikson-BepInExPack_Valheim-5.4.2333",
     "ValheimModding-Jotunn-2.29.0",
-    "ValheimModding-JsonDotNET-1.0.5"
+    "ValheimModding-JsonDotNET-13.0.4"
   ]
 }
