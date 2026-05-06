@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(ls -la ~/.steam/debian-installation/steamapps/compatdata/ 2>&1 | head -20)",
+      "Read(//home/catosaur/.steam/debian-installation/steamapps/compatdata/**)"
+    ]
+  }
+}
