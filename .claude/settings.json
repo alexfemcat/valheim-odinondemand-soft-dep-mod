@@ -49,14 +49,31 @@
       "Bash(mkdir -p ~/.config/r2modmanPlus-local/Valheim/profiles/Default/BepInEx/plugins/Valmedia-OdinOnDemand)",
       "Bash(cp /home/catosaur/Documents/bots_n_coding/Valheim-Mods/OdinOnDemand-SOFT/plugin/bin/Release/*.dll /home/catosaur/Documents/bots_n_coding/Valheim-Mods/OdinOnDemand-SOFT/plugin/bin/Release/*.json /home/catosaur/Documents/bots_n_coding/Valheim-Mods/OdinOnDemand-SOFT/plugin/bin/Release/videoplayers ~/.config/r2modmanPlus-local/Valheim/profiles/Default/BepInEx/plugins/Valmedia-OdinOnDemand/)",
       "Bash(cp -v /home/catosaur/.nuget/packages/youtubedlsharp/1.1.2/lib/net45/YoutubeDLSharp.dll /home/catosaur/Documents/bots_n_coding/Valheim-Mods/OdinOnDemand-SOFT/TEST_SERVER/BepInEx/plugins/Valmedia-OdinOnDemand/)",
-      "Bash(cp -v /home/catosaur/.nuget/packages/youtubedlsharp/1.1.2/lib/net45/YoutubeDLSharp.dll ~/.config/r2modmanPlus-local/Valheim/profiles/Default/BepInEx/plugins/Valmedia-OdinOnDemand/)"
+      "Bash(cp -v /home/catosaur/.nuget/packages/youtubedlsharp/1.1.2/lib/net45/YoutubeDLSharp.dll ~/.config/r2modmanPlus-local/Valheim/profiles/Default/BepInEx/plugins/Valmedia-OdinOnDemand/)",
+      "Bash(mkdir -p ~/.config/r2modmanPlus-local/Valheim/profiles/Default/BepInEx/plugins/ValheimModding-Jotunn)",
+      "Bash(cp ~/.nuget/packages/jotunnlib/2.27.0/lib/net462/Jotunn.dll ~/.config/r2modmanPlus-local/Valheim/profiles/Default/BepInEx/plugins/ValheimModding-Jotunn/)",
+      "Bash(rm -rf ~/.config/r2modmanPlus-local/Valheim/profiles/Default/BepInEx/plugins/ValheimModding-Jotunn)",
+      "Bash(cp -v /home/catosaur/Downloads/valheim-test-temp/ValheimModding-Jotunn-2.29.0/plugins/* ~/.config/r2modmanPlus-local/Valheim/profiles/Default/BepInEx/plugins/ValheimModding-Jotunn/)",
+      "Bash(chmod +x /home/catosaur/Documents/bots_n_coding/Valheim-Mods/OdinOnDemand-SOFT/package.sh)",
+      "Bash(/home/catosaur/Documents/bots_n_coding/Valheim-Mods/OdinOnDemand-SOFT/package.sh)",
+      "Bash(unzip -l /home/catosaur/Documents/bots_n_coding/Valheim-Mods/OdinOnDemand-SOFT/dist/OdinOnDemand-Client-Bundle.zip)",
+      "Bash(cp /home/catosaur/Documents/bots_n_coding/Valheim-Mods/OdinOnDemand-SOFT/plugin/bin/Release/System.ValueTuple.dll ~/.config/r2modmanPlus-local/Valheim/profiles/Default/BepInEx/plugins/Valmedia-OdinOnDemand/ && cp /home/catosaur/Documents/bots_n_coding/Valheim-Mods/OdinOnDemand-SOFT/plugin/bin/Release/System.ValueTuple.dll /home/catosaur/Documents/bots_n_coding/Valheim-Mods/OdinOnDemand-SOFT/TEST_SERVER/BepInEx/plugins/Valmedia-OdinOnDemand/)",
+      "Bash(rm ~/.config/r2modmanPlus-local/Valheim/profiles/Default/BepInEx/LogOutput.log && echo \"Log cleared. Now restart Valheim through r2modman and wait 30 seconds for it to fully load. Then run: tail -100 ~/.config/r2modmanPlus-local/Valheim/profiles/Default/BepInEx/LogOutput.log\")",
+      "Bash(find ~/.config/r2modmanPlus-local -type f -newer /tmp -mmin -5 2>/dev/null | head -20)",
+      "Read(//tmp/**)",
+      "Bash(~/.steam/debian-installation/steamapps/common/Valheim/valheim.x86_64 -console)",
+      "Bash(rm -rf ~/.steam/debian-installation/steamapps/compatdata/892970 && echo \"Proton prefix deleted. Launch Valheim through Steam—it will rebuild the prefix on first launch.\")"
     ],
     "additionalDirectories": [
       "/home/catosaur/Documents/bots_n_coding/Valheim-Mods",
       "/home/catosaur/.steam/debian-installation/steamapps/common/Valheim/valheim_Data/Managed",
       "/home/catosaur/.config/r2modmanPlus-local/Valheim/profiles/Default/BepInEx/core",
       "/home/catosaur/Documents/bots_n_coding/Valheim-Mods/publicized_assemblies",
-      "/home/catosaur/.nuget/packages/youtubedlsharp/1.1.2/lib/net8.0"
+      "/home/catosaur/.nuget/packages/youtubedlsharp/1.1.2/lib/net8.0",
+      "/home/catosaur/.config/r2modmanPlus-local/Valheim/profiles/Default/BepInEx/plugins/Valmedia-OdinOnDemand",
+      "/home/catosaur/.config/r2modmanPlus-local/Valheim/profiles/Default/BepInEx",
+      "/home/catosaur/.steam/debian-installation/steamapps/common/Valheim",
+      "/home/catosaur/.steam/debian-installation/steamapps/compatdata/892970"
     ]
   }
 }
