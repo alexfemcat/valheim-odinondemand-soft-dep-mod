@@ -1,0 +1,1 @@
+/home/catosaur/.steam/debian-installation/steamapps/common/Valheim/BepInEx/LogOutput.log

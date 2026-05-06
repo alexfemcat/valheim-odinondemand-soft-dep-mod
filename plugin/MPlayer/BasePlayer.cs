@@ -257,16 +257,6 @@ namespace OdinOnDemand.MPlayer
             // Just send RPC. It will be sent back to us and we'll handle it there.
             if (((IPlayer)this).mScreen|| mAudio)
             {
-                if (url.Contains("youtube.com/watch?v=") || url.Contains("youtube.com/shorts/") ||
-                    url.Contains("youtu.be") || url.Contains("youtube.com/playlist"))
-                {
-                    UIController.UpdatePlaylistInfo();
-                    if (url.Contains("?list=") || url.Contains("&list="))
-                    {
-                        SetPlaylist(UnparsedURL);
-                        return;
-                    }
-                }
                 mScreen.time = 0;
                 if (mAudio.clip)
                     mAudio.time = 0;
@@ -277,40 +267,6 @@ namespace OdinOnDemand.MPlayer
             }
         }
 
-        private void SetPlaylist(string url) // Set playlist from url
-        {
-            StartCoroutine(URLGrab.GetYouTubePlaylistCoroutine(url, (videoInfos) =>
-            {
-                if (videoInfos != null)
-                {
-                    // Process the list of videoInfos
-                    CurrentPlaylist = videoInfos;
-                    PlayerSettings.IsPlayingPlaylist = true;
-                    PlaylistPosition = 0;
-                    if (OODConfig.DebugEnabled.Value) // Debug playlist info
-                    {
-                        Logger.LogDebug("Playlist info");
-                        Logger.LogDebug("Count: " + CurrentPlaylist.Count);
-                        Logger.LogDebug(CurrentPlaylist.ToString());
-                        Logger.LogDebug("Playing first url of " + CurrentPlaylist.ElementAt(PlaylistPosition).Url);
-                    }
-                    PlaylistURL = url;
-                    SetURL(CurrentPlaylist.ElementAt(PlaylistPosition).Url); // Play first url, when it finishes it will play the next one with the OnVideoEnd event
-                    if (UIController.URLPanelObj)
-                    {
-                        UIController.UpdatePlaylistUI();
-                        UIController.ToggleShuffleObj.GetComponentInChildren<Text>().text = "N";
-                        UIController.ToggleShuffleObj.SetActive(true);
-                        UIController.ToggleShuffleTextObj.SetActive(true);
-                    }
-                }
-                else
-                {
-                    // Handle error or null case
-                    Logger.LogError("Failed to load playlist");
-                }
-            }));
-        }
         
         public  void Play(bool isRPC = false) //Play the video (if paused)
         {
@@ -701,72 +657,6 @@ namespace OdinOnDemand.MPlayer
             }
         }
 
-        
-        public void PlaySoundcloud(string sentUrl, bool isRPC) // Soundcloud urlgrab and play
-        {
-            var url = URLGrab.CleanUrl(sentUrl);
-            UIController.SetLoadingIndicatorText("Processing");
-            UIController.SetLoadingIndicatorActive(true);
-            if (sentUrl != null)
-            {
-                StartCoroutine(URLGrab.GetSoundcloudExplodeCoroutine(url, (resultUrl, artworkUri) =>
-                {
-                    if (resultUrl != null)
-                    {
-                        if (artworkUri != null)
-                        {
-                            StartCoroutine(CreateThumbnailFromURL(artworkUri));
-                        }
-                        else
-                        {
-                            PlayerSettings.Thumbnail = null;
-                        }
-                        StartCoroutine(AudioWebRequest(resultUrl));
-                        
-                    }
-                    else
-                    {
-                        UIController.SetLoadingIndicatorText("Null, check logs");
-                        Logger.LogWarning("Failed to load Soundcloud");
-                        StartCoroutine(ResetLoadingIndicatorAfterDelay());
-                    }
-                }));
-            }
-            else
-            {
-                var message = "Soundcloud Null"; 
-                Logger.LogInfo("Soundcloud Null, check for exceptions");
-
-                StartCoroutine(UIController.UnavailableIndicator(message));
-            }
-        }
-        
-        public void PlayYoutube(string url) // Youtube urlgrab and play
-        {
-            if (URLGrab.LoadingBool) return;
-            if (OODConfig.IsYtEnabled.Value)
-            {
-                if (PlayerSettings.IsLooping)
-                {
-                    mScreen.isLooping = true;
-                    mAudio.loop = true;
-                }
-                
-                if (OODConfig.YoutubeAPI.Value == OODConfig.YouTubeAPI.YouTubeExplode)
-                {
-                    StartYoutubeProcessing(url);
-                }
-                else
-                {
-                    YoutubeURLNode = url;
-                    StartCoroutine(YoutubeNodeQuery()); // Youtube-dl nodejs //TODO update node code
-                }
-            }
-            else
-            {
-                StartCoroutine(UIController.UnavailableIndicator("YouTube disabled")); 
-            }
-        }
         public void RPC_SetURL(string url, bool isPaused = false, float time = 0f) // RPC SetURL
         {
             if (url == null) return;
@@ -795,14 +685,6 @@ namespace OdinOnDemand.MPlayer
                 return;
             }
 
-            // check if url is soundcloud
-            if (url.Contains("soundcloud.com/"))
-            {
-                PlayerSettings.PlayerLinkType = PlayerSettings.LinkType.Soundcloud;
-                PlaySoundcloud(url, true);
-                return;
-            }
-            
             if (url.Contains("\\") || url.Contains(".") || url.Contains("/"))
             {
                 //Relative paths for local files
@@ -816,23 +698,10 @@ namespace OdinOnDemand.MPlayer
                     if (OODConfig.DebugEnabled.Value) Logger.LogDebug("Playing: " + relativeURL);
                     BeginLoadingPrepare();
                 }
-                if ((url.StartsWith("http://") || url.StartsWith("https://")) && 
-                    !Path.HasExtension(url) && 
-                    OODConfig.IsYtEnabled.Value)
-                {
-                    if (PlayerSettings.IsLooping && (!mScreen.isLooping || !mAudio.loop))
-                    {
-                        mScreen.isLooping = true;
-                        mAudio.loop = true;
-                    }
-    
-                    PlayerSettings.PlayerLinkType = PlayerSettings.LinkType.Youtube;
-                    PlayYoutube(url);
-                }
                 else
                 {
                     PlayerSettings.PlayerLinkType = PlayerSettings.LinkType.Video;
-                    mScreen.source = UnityEngine.Video.VideoSource.Url;  
+                    mScreen.source = UnityEngine.Video.VideoSource.Url;
                     mScreen.url = url;
                     BeginLoadingPrepare();
                     if (OODConfig.DebugEnabled.Value) Logger.LogDebug("Playing: " + url);
